@@ -1,4 +1,3 @@
-Absolutely, I'd be happy to help you get started with CSS! Let's begin with the basics.
 
 ## Class 1: Introduction to CSS and Text Formatting
 
@@ -711,3 +710,114 @@ Here's what each part of `flex: 1 0 100px;` means:
 So, `flex: 1 0 100px;` indicates that the flex item can grow (but not shrink), and its initial size is set to 100 pixels. The value `1` for `flex-grow` indicates that the item can take up additional space, and the value `0` for `flex-shrink` indicates that the item won't shrink if there's not enough space.
 
 This shorthand property is quite handy when you want to control the behavior of a flex item's growth, shrinkage, and initial size in a compact way.
+
+
+
+## CSS Position Properties
+
+CSS provides several values for the `position` property, which controls the positioning of an element within its containing element. The `position` property is often used in conjunction with other properties like `top`, `right`, `bottom`, and `left`.
+
+1. **`position: static;`**
+
+   This is the default value for the `position` property. It means the element follows the normal flow of the document and is not affected by the `top`, `right`, `bottom`, and `left` properties.
+
+   **Implementation:**
+   ```css
+   .element {
+       position: static;
+   }
+   ```
+
+2. **`position: relative;`**
+
+   When an element has `position: relative;`, it's positioned relative to its normal position in the document flow. The `top`, `right`, `bottom`, and `left` properties can be used to offset the element from its normal position.
+
+   **Implementation:**
+   ```css
+   .element {
+       position: relative;
+       top: 20px;
+       left: 10px;
+   }
+   ```
+
+3. **`position: absolute;`**
+
+   Elements with `position: absolute;` are positioned relative to their nearest positioned ancestor (or the initial containing block if there is no positioned ancestor). This allows precise positioning within a parent element.
+
+   **Implementation:**
+   ```css
+   .parent {
+       position: relative;
+   }
+
+   .child {
+       position: absolute;
+       top: 50px;
+       left: 20px;
+   }
+   ```
+
+4. **`position: fixed;`**
+
+   Elements with `position: fixed;` are positioned relative to the viewport. They do not move when the user scrolls. It's often used for creating fixed navigation bars or headers.
+
+   **Implementation:**
+   ```css
+   .element {
+       position: fixed;
+       top: 0;
+       left: 0;
+   }
+   ```
+
+5. **`position: sticky;`**
+
+   Elements with `position: sticky;` are positioned based on the user's scroll position. They act like `position: relative;` until a certain offset threshold is reached, after which they behave like `position: fixed;`.
+
+   **Implementation:**
+   ```css
+   .element {
+       position: sticky;
+       top: 20px;
+   }
+   ```
+
+**Notes:**
+- The `position` property is used to control the positioning of elements within their containing elements.
+- The values are: `static` (default), `relative`, `absolute`, `fixed`, and `sticky`.
+- `position: static;` follows the normal flow.
+- `position: relative;` allows for offsets from normal position.
+- `position: absolute;` is positioned relative to nearest positioned ancestor.
+- `position: fixed;` is positioned relative to the viewport and doesn't move with scrolling.
+- `position: sticky;` is positioned based on scroll position.
+
+**Difference between relative and absolute:**
+
+Both `position: relative` and `position: absolute` are CSS positioning properties, but they have different effects on the positioning of an element.
+
+1. `position: relative`: When an element is set to `position: relative`, it is positioned relative to its normal position in the document flow. It allows you to modify the position of the element using the `top`, `bottom`, `left`, and `right` properties. However, the element still occupies its original space in the document flow, meaning it can affect the layout of other elements. If no `top`, `bottom`, `left`, or `right` values are specified, the element remains in its normal flow position.
+
+2. `position: absolute`: With `position: absolute`, the element is positioned relative to its closest positioned ancestor (an ancestor with a position value other than `static`). If there is no positioned ancestor, it is positioned relative to the initial containing block, which is usually the viewport. The element is taken out of the normal document flow, so it doesn't affect the layout of other elements. You can use `top`, `bottom`, `left`, and `right` properties to specify the exact position of the element.
+
+In summary:
+- `position: relative` positions the element relative to its normal position, and it still occupies space in the document flow.
+- `position: absolute` positions the element relative to its closest positioned ancestor or the viewport, and it is taken out of the document flow.
+
+Both `position: relative` and `position: absolute` can be used together with `top`, `bottom`, `left`, and `right` properties to precisely control the position of elements on a web page.
+
+
+**Difference between sticky and fixed:**
+
+
+Both `position: sticky` and `position: fixed` are CSS positioning properties, but they behave differently.
+
+1. `position: sticky`: This value allows an element to "stick" to a specific position within its containing element based on the user's scroll position. It behaves as relative positioning until the element reaches a specified threshold, and then it becomes fixed to that position. When the user scrolls beyond that threshold, the element resumes its normal flow. It is like a hybrid of `position: relative` and `position: fixed`. 
+
+2. `position: fixed`: This value positions an element relative to the browser window, regardless of scrolling. The element remains fixed at its specified position, even if the page is scrolled. It does not affect the layout of other elements on the page, and it will overlap them if necessary.
+
+In summary:
+- `position: sticky` becomes fixed only when the user scrolls to a certain point, and then it reverts to its normal position when scrolling beyond that point.
+- `position: fixed` remains fixed at the specified position regardless of scrolling, overlapping other elements.
+
+It's important to note that `position: sticky` is not supported in some older browsers, while `position: fixed` is widely supported.
