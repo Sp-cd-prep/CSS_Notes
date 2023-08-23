@@ -1,4 +1,3 @@
-
 ## Class 1: Introduction to CSS and Text Formatting
 
 ### Part 1: Introduction to CSS
@@ -591,14 +590,16 @@ Here are the key properties of the Flexbox layout model, along with their defini
    This property determines how flex items shrink if they don't have enough space on the main axis.
 
    **Values:**
+
    - Numeric values (e.g., `0`, `1`, `2`, ...).
 
    **Implementation:**
+
    ```css
    .item {
-       flex-shrink: 0;
+     flex-shrink: 0;
    }
-    ```
+   ```
 
 10. **`flex-basis`**
 
@@ -711,8 +712,6 @@ So, `flex: 1 0 100px;` indicates that the flex item can grow (but not shrink), a
 
 This shorthand property is quite handy when you want to control the behavior of a flex item's growth, shrinkage, and initial size in a compact way.
 
-
-
 ## CSS Position Properties
 
 CSS provides several values for the `position` property, which controls the positioning of an element within its containing element. The `position` property is often used in conjunction with other properties like `top`, `right`, `bottom`, and `left`.
@@ -722,9 +721,10 @@ CSS provides several values for the `position` property, which controls the posi
    This is the default value for the `position` property. It means the element follows the normal flow of the document and is not affected by the `top`, `right`, `bottom`, and `left` properties.
 
    **Implementation:**
+
    ```css
    .element {
-       position: static;
+     position: static;
    }
    ```
 
@@ -733,11 +733,12 @@ CSS provides several values for the `position` property, which controls the posi
    When an element has `position: relative;`, it's positioned relative to its normal position in the document flow. The `top`, `right`, `bottom`, and `left` properties can be used to offset the element from its normal position.
 
    **Implementation:**
+
    ```css
    .element {
-       position: relative;
-       top: 20px;
-       left: 10px;
+     position: relative;
+     top: 20px;
+     left: 10px;
    }
    ```
 
@@ -746,15 +747,16 @@ CSS provides several values for the `position` property, which controls the posi
    Elements with `position: absolute;` are positioned relative to their nearest positioned ancestor (or the initial containing block if there is no positioned ancestor). This allows precise positioning within a parent element.
 
    **Implementation:**
+
    ```css
    .parent {
-       position: relative;
+     position: relative;
    }
 
    .child {
-       position: absolute;
-       top: 50px;
-       left: 20px;
+     position: absolute;
+     top: 50px;
+     left: 20px;
    }
    ```
 
@@ -763,11 +765,12 @@ CSS provides several values for the `position` property, which controls the posi
    Elements with `position: fixed;` are positioned relative to the viewport. They do not move when the user scrolls. It's often used for creating fixed navigation bars or headers.
 
    **Implementation:**
+
    ```css
    .element {
-       position: fixed;
-       top: 0;
-       left: 0;
+     position: fixed;
+     top: 0;
+     left: 0;
    }
    ```
 
@@ -776,14 +779,16 @@ CSS provides several values for the `position` property, which controls the posi
    Elements with `position: sticky;` are positioned based on the user's scroll position. They act like `position: relative;` until a certain offset threshold is reached, after which they behave like `position: fixed;`.
 
    **Implementation:**
+
    ```css
    .element {
-       position: sticky;
-       top: 20px;
+     position: sticky;
+     top: 20px;
    }
    ```
 
 **Notes:**
+
 - The `position` property is used to control the positioning of elements within their containing elements.
 - The values are: `static` (default), `relative`, `absolute`, `fixed`, and `sticky`.
 - `position: static;` follows the normal flow.
@@ -801,23 +806,333 @@ Both `position: relative` and `position: absolute` are CSS positioning propertie
 2. `position: absolute`: With `position: absolute`, the element is positioned relative to its closest positioned ancestor (an ancestor with a position value other than `static`). If there is no positioned ancestor, it is positioned relative to the initial containing block, which is usually the viewport. The element is taken out of the normal document flow, so it doesn't affect the layout of other elements. You can use `top`, `bottom`, `left`, and `right` properties to specify the exact position of the element.
 
 In summary:
+
 - `position: relative` positions the element relative to its normal position, and it still occupies space in the document flow.
 - `position: absolute` positions the element relative to its closest positioned ancestor or the viewport, and it is taken out of the document flow.
 
 Both `position: relative` and `position: absolute` can be used together with `top`, `bottom`, `left`, and `right` properties to precisely control the position of elements on a web page.
 
-
 **Difference between sticky and fixed:**
-
 
 Both `position: sticky` and `position: fixed` are CSS positioning properties, but they behave differently.
 
-1. `position: sticky`: This value allows an element to "stick" to a specific position within its containing element based on the user's scroll position. It behaves as relative positioning until the element reaches a specified threshold, and then it becomes fixed to that position. When the user scrolls beyond that threshold, the element resumes its normal flow. It is like a hybrid of `position: relative` and `position: fixed`. 
+1. `position: sticky`: This value allows an element to "stick" to a specific position within its containing element based on the user's scroll position. It behaves as relative positioning until the element reaches a specified threshold, and then it becomes fixed to that position. When the user scrolls beyond that threshold, the element resumes its normal flow. It is like a hybrid of `position: relative` and `position: fixed`.
 
 2. `position: fixed`: This value positions an element relative to the browser window, regardless of scrolling. The element remains fixed at its specified position, even if the page is scrolled. It does not affect the layout of other elements on the page, and it will overlap them if necessary.
 
 In summary:
+
 - `position: sticky` becomes fixed only when the user scrolls to a certain point, and then it reverts to its normal position when scrolling beyond that point.
 - `position: fixed` remains fixed at the specified position regardless of scrolling, overlapping other elements.
 
 It's important to note that `position: sticky` is not supported in some older browsers, while `position: fixed` is widely supported.
+
+## CSS List Styling Properties
+
+1. **`list-style-type`**
+
+   This property defines the marker style for list items.
+
+   - Values: `none`, `disc`, `circle`, `square`, `decimal`, `decimal-leading-zero`, `lower-roman`, `upper-roman`, `lower-alpha`, `upper-alpha`
+
+   **Implementation:**
+
+  ```css
+  <html>
+<head>
+<style>
+ul.a {list-style-type: circle;}
+ul.b {list-style-type: square;}
+ol.c {list-style-type: upper-roman;}
+ol.d {list-style-type: lower-alpha;}
+</style>
+</head>
+<body>
+
+<h1>The list-style-type Property</h1>
+
+<p>Example of unordered lists:</p>
+
+<ul class="a">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+
+<ul class="b">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+
+<p>Example of ordered lists:</p>
+
+<ol class="c">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+
+<ol class="d">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+
+</body>
+</html>
+  ```
+
+2. **`list-style-image`**
+
+   This property sets an image as the marker for list items.
+
+   **Implementation:**
+
+   ```css
+   ul {
+     list-style-image: url("bullet.png");
+   }
+   ```
+
+3. **`list-style-position`**
+
+   This property defines the position of the list marker.
+
+   - Values: `inside` (marker inside the list item), `outside` (marker outside the list item, default)
+
+   
+
+   **Implementation:**
+
+```html
+<html>
+<head>
+<style>
+ul.a {
+  list-style-position: outside;
+}
+ul.b {
+  list-style-position: inside;
+}
+</style>
+</head>
+<body>
+
+<h1>The list-style-position Property</h1>
+
+<h2>list-style-position: outside (default):</h2>
+<ul class="a">
+  <li>Coffee - A brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea plant</li>
+  <li>Tea - An aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub (bush) native to Asia</li>
+  <li>Coca Cola - A carbonated soft drink produced by The Coca-Cola Company. The drink's name refers to two of its original ingredients, which were kola nuts (a source of caffeine) and coca leaves</li>
+</ul>
+
+<h2>list-style-position: inside:</h2>
+<ul class="b">
+  <li>Coffee - A brewed drink prepared from roasted coffee beans, which are the seeds of berries from the Coffea plant</li>
+  <li>Tea - An aromatic beverage commonly prepared by pouring hot or boiling water over cured leaves of the Camellia sinensis, an evergreen shrub (bush) native to Asia</li>
+  <li>Coca Cola - A carbonated soft drink produced by The Coca-Cola Company. The drink's name refers to two of its original ingredients, which were kola nuts (a source of caffeine) and coca leaves</li>
+</ul>
+
+</body>
+</html>
+   ```
+
+4. **`list-style`**
+
+   This is a shorthand property that combines `list-style-type`, `list-style-position`, and `list-style-image`.
+
+   **Implementation:**
+
+   ```css
+   ul {
+     list-style: circle inside url("bullet.png");
+   }
+   ```
+
+The above properties are typically applied to `<ul>` (unordered lists) and `<ol>` (ordered lists) elements. You can customize the appearance of list markers using these properties to match your design preferences.
+
+Here's an example that demonstrates the usage of some of these properties:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      ul {
+        list-style-type: square;
+        list-style-image: url("bullet.png");
+        list-style-position: inside;
+      }
+    </style>
+    <title>List Styling Example</title>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </body>
+</html>
+```
+
+In this example, an unordered list is styled with square markers, an image bullet, and the marker position set to inside the list items.
+
+Remember that you can adjust these properties to achieve the desired appearance for your lists based on your design requirements.
+
+
+## CSS Properties for Styling HTML Tables
+
+1. **`border-collapse`**
+
+   This property controls how table borders collapse or separate.
+
+   - Values: `collapse` (borders collapse into a single border), `separate` (borders remain separate, default)
+
+   **Implementation:**
+   ```css
+   table {
+       border-collapse: collapse;
+   }
+   ```
+
+2. **`border-spacing`**
+
+   This property sets the spacing between adjacent cell borders.
+
+   **Implementation:**
+   ```css
+   table {
+       border-spacing: 10px;
+   }
+   ```
+
+3. **`caption-side`**
+
+   This property specifies the placement of the table caption.
+
+   - Values: `top`, `bottom` (default)
+
+   **Implementation:**
+   ```css
+   table {
+       caption-side: top;
+   }
+   ```
+
+4. **`empty-cells`**
+
+   This property controls the display of borders and backgrounds for empty cells.
+
+   - Values: `show` (show borders/backgrounds for empty cells), `hide` (hide borders/backgrounds for empty cells, default)
+
+   **Implementation:**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 100%;
+            empty-cells: hide; /* Try changing this to 'hide' */
+        }
+        
+        table, th, td {
+            border: 1px solid #333;
+            padding: 8px;
+        }
+    </style>
+    <title>Empty Cells Example</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+        <tr>
+            <td>Cell 1</td>
+            <td></td> <!-- This cell is empty -->
+        </tr>
+        <tr>
+            <td></td> <!-- This cell is empty -->
+            <td>Cell 2</td>
+        </tr>
+        <tr>
+            <td></td> <!-- This cell is empty -->
+            <td></td> <!-- This cell is empty -->
+        </tr>
+    </table>
+</body>
+</html>
+
+```
+
+5. **`table-layout`**
+
+   This property defines the algorithm used to layout the table cells, rows, and columns.
+
+   - Values: `auto` (table layout algorithm automatically), `fixed` (table layout algorithm based on column widths)
+
+   **Implementation:**
+   ```css
+   table {
+       table-layout: fixed;
+   }
+   ```
+
+6. **`width`**
+
+   This property sets the width of the table.
+
+   **Implementation:**
+   ```css
+   table {
+       width: 100%;
+   }
+   ```
+
+7. **`text-align`**
+
+   This property aligns the content horizontally within table cells.
+
+   - Values: `left`, `right`, `center`
+
+   **Implementation:**
+   ```css
+   th, td {
+       text-align: center;
+   }
+   ```
+
+8. **`vertical-align`**
+
+   This property aligns the content vertically within table cells.
+
+   - Values: `top`, `bottom`, `middle`
+
+   **Implementation:**
+   ```css
+   th, td {
+       vertical-align: middle;
+   }
+   ```
+
+9. **`background-color`**
+
+   This property sets the background color for table elements.
+
+   **Implementation:**
+   ```css
+   th, td {
+       background-color: lightgray;
+   }
+   ```
+
+These are just a few of the key properties for styling HTML tables. By experimenting with these properties and their different values, you'll gain a better understanding of how to customize the appearance of tables in your web design.
