@@ -1032,7 +1032,6 @@ Remember that you can adjust these properties to achieve the desired appearance 
 
    **Implementation:**
 ```html
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1136,3 +1135,259 @@ Remember that you can adjust these properties to achieve the desired appearance 
    ```
 
 These are just a few of the key properties for styling HTML tables. By experimenting with these properties and their different values, you'll gain a better understanding of how to customize the appearance of tables in your web design.
+
+
+## CSS `filter` Property
+
+The `filter` property in CSS allows you to apply various visual effects to elements. It's often used to modify the appearance of images or other content on a web page. You can use multiple filter functions in a single `filter` property declaration.
+
+### Filter Functions
+
+1. **`blur()`**
+
+   Applies a Gaussian blur to the element.
+
+   Example:
+   ```css
+   .element {
+       filter: blur(5px);
+   }
+   ```
+
+2. **`brightness()`**
+
+   Adjusts the brightness of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: brightness(150%);
+   }
+   ```
+
+3. **`contrast()`**
+
+   Adjusts the contrast of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: contrast(150%);
+   }
+   ```
+
+4. **`drop-shadow()`**
+
+   Applies a drop shadow effect to the element.
+
+   Example:
+   ```css
+   .element {
+       filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+   }
+   ```
+
+5. **`grayscale()`**
+
+   Converts the element to grayscale (black and white).
+
+   Example:
+   ```css
+   .element {
+       filter: grayscale(100%);
+   }
+   ```
+
+6. **`hue-rotate()`**
+
+   Rotates the hue of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: hue-rotate(90deg);
+   }
+   ```
+
+7. **`invert()`**
+
+   Inverts the colors of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: invert(100%);
+   }
+   ```
+
+8. **`opacity()`**
+
+   Adjusts the opacity (transparency) of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: opacity(50%);
+   }
+   ```
+
+9. **`saturate()`**
+
+   Adjusts the saturation of the element.
+
+   Example:
+   ```css
+   .element {
+       filter: saturate(200%);
+   }
+   ```
+
+10. **`sepia()`**
+
+    Applies a sepia tone to the element.
+
+    Example:
+    ```css
+    .element {
+        filter: sepia(100%);
+    }
+    ```
+
+### Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .image {
+            width: 300px;
+            height: 200px;
+            background-image: url("image.jpg");
+            background-size: cover;
+            filter: grayscale(100%);
+        }
+    </style>
+    <title>Filter Example</title>
+</head>
+<body>
+    <div class="image"></div>
+</body>
+</html>
+```
+
+In this example, the `.image` element has the `filter` property set to `grayscale(100%)`, which makes the background image appear in grayscale. You can replace `grayscale(100%)` with other filter functions to apply different visual effects.
+
+Remember that the `filter` property might not be supported in older browsers, so it's a good practice to provide fallback styles for compatibility.
+
+
+
+## CSS `float` Property
+
+The `float` property is used to control the positioning of an element along the left or right side of its containing element. It's commonly used for creating layouts with multiple columns or arranging images within text.
+
+### Values
+
+- **`left`**: The element is floated to the left.
+- **`right`**: The element is floated to the right.
+- **`none`**: The element is not floated (default behavior).
+
+### Implementation
+
+```css
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.no-float {
+    float: none;
+}
+```
+```html
+<html>
+<head>
+<style>
+img {
+  float: left;
+}
+</style>
+</head>
+<body>
+
+<h2>Float Right</h2>
+
+<p>In this example, the image will float to the right in the paragraph, and the text in the paragraph will wrap around the image.</p>
+
+<p><img src="pineapple.jpg" alt="Pineapple" style="width:170px;height:170px;margin-left:15px;">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.</p>
+
+</body>
+</html>
+```
+
+
+
+## CSS `clear` Property
+
+The `clear` property specifies whether an element should be moved below floating elements that come before it. It prevents an element from aligning beside floated elements.
+
+### Values
+
+- **`left`**: The element clears elements that are floated to the left.
+- **`right`**: The element clears elements that are floated to the right.
+- **`both`**: The element clears both left and right floated elements.
+- **`none`**: The element does not clear any floated elements (default behavior).
+
+### Implementation
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.div1 {
+  float: left;
+  padding: 10px;
+  border: 3px solid #73AD21;
+}
+
+.div2 {
+  padding: 10px;
+  border: 3px solid red;
+}
+
+.div3 {
+  float: right;
+  padding: 10px;  
+  border: 3px solid #73AD21;
+}
+
+.div4 {
+  padding: 10px;
+  border: 3px solid red;
+  clear: right;
+}
+</style>
+</head>
+<body>
+
+<h2>Without clear</h2>
+<div class="div1">div1</div>
+<div class="div2">div2 - Notice that div2 is after div1 in the HTML code. However, since div1 floats to the left, the text in div2 flows around div1.</div>
+<br><br>
+
+<h2>With clear</h2>
+<div class="div3">div3</div>
+<div class="div4">div4 - Here, clear: left; moves div4 down below the floating div3. The value "left" clears elements floated to the left. You can also clear "right" and "both".</div>
+
+</body>
+</html>
+
+```
+
