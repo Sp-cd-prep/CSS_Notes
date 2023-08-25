@@ -1391,3 +1391,153 @@ The `clear` property specifies whether an element should be moved below floating
 
 ```
 
+
+
+## CSS Gradients
+
+### Linear Gradient
+
+A linear gradient transitions colors in a straight line.
+
+#### Syntax:
+```css
+linear-gradient(direction, color-stop1, color-stop2, ...);
+```
+
+- `direction`: Angle or keyword (e.g., `to right`, `45deg`).
+- `color-stop`: Color and optional stop position (e.g., `color`, `color 50%`).
+
+#### Implementation:
+```css
+.linear-gradient-example {
+    background: linear-gradient(to right, red, blue);
+}
+```
+
+### Radial Gradient
+
+A radial gradient transitions colors outward from a center point.
+
+#### Syntax:
+```css
+radial-gradient(shape at position, color-stop1, color-stop2, ...);
+```
+
+- `shape`: Keyword (e.g., `circle`, `ellipse`).
+- `position`: Center point (e.g., `center center`).
+- `color-stop`: Color and optional stop position.
+
+#### Implementation:
+```css
+.radial-gradient-example {
+    background: radial-gradient(circle at center, orange, yellow);
+}
+```
+
+### Conic Gradient
+
+A conic gradient transitions colors around a center point.
+
+#### Syntax:
+```css
+conic-gradient(from, color-stop1, color-stop2, ...);
+```
+
+- `from`: Starting angle (e.g., `0deg`).
+- `color-stop`: Color and optional stop position.
+
+#### Implementation:
+```css
+.conic-gradient-example {
+    background: conic-gradient(red, yellow, green);
+}
+```
+
+### Multiple Gradients
+
+You can combine multiple gradients using commas.
+
+#### Implementation:
+```css
+.multiple-gradient-example {
+    background: linear-gradient(to bottom, red, yellow), radial-gradient(circle at top right, blue, green);
+}
+```
+
+### Transparency Gradient
+
+You can use gradients with transparent colors for effects like fading.
+
+#### Implementation:
+```css
+.transparency-gradient-example {
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+}
+```
+
+## Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      div{
+        margin: 20px auto;
+      }
+        .linear-gradient-example {
+            width: 500px;
+            height: 200px;
+            /* background: linear-gradient(to bottom, red, blue); */
+            /* background: linear-gradient(to top, red, blue); */
+            /* background: linear-gradient(to left, red, blue); */
+            /* background: linear-gradient(to right, red, blue); */
+            background: linear-gradient(130deg, red, blue);
+               /* background: linear-gradient(45deg, red 50%, blue 50% ); */
+
+        }
+        
+        .radial-gradient-example {
+            width: 400px;
+            height: 200px;
+            /* background: radial-gradient(circle, orange, yellow, red); */
+            background: radial-gradient(ellipse, orange, yellow, red);
+        }
+        
+        .conic-gradient-example {
+            width: 200px;
+            height: 200px;
+            /* background: conic-gradient(red, yellow, green); */
+            /* background-image: conic-gradient(red 45deg, yellow 90deg, green 210deg); */
+            background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg);
+        }
+        
+        .multiple-gradient-example {
+            width: 200px;
+            height: 200px;
+            background: repeating-linear-gradient(red, yellow 10%, green 20%);
+        }
+        
+        .transparency-gradient-example {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+        }
+    </style>
+    <title>Gradient Examples</title>
+</head>
+<body>
+    <div class="linear-gradient-example"></div>
+    <div class="radial-gradient-example"></div>
+    <div class="conic-gradient-example"></div>
+    <div class="multiple-gradient-example"></div>
+    <div class="transparency-gradient-example"></div>
+</body>
+</html>
+
+```
+
+Copy and paste this code into an HTML file and open it in a web browser to see the different gradient examples in action. Feel free to modify the values and positions to create your own gradient effects.
+
