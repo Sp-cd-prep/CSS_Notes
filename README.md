@@ -1541,3 +1541,360 @@ You can use gradients with transparent colors for effects like fading.
 
 Copy and paste this code into an HTML file and open it in a web browser to see the different gradient examples in action. Feel free to modify the values and positions to create your own gradient effects.
 
+
+## CSS Units
+
+### `em` Unit
+
+- Relative to the font-size of its nearest parent or the element itself.
+- Can compound when nested.
+- Useful for maintaining responsive typography.
+
+**Implementation:**
+```css
+.container {
+    font-size: 16px; /* 1em equals 16px */
+}
+
+.text {
+    font-size: 1.5em; /* 1.5 * 16px = 24px */
+}
+```
+
+### `rem` Unit
+
+- Relative to the font-size of the root element (usually `<html>`).
+- Offers a consistent sizing across the entire document.
+- Useful for creating a more predictable responsive design.
+
+**Implementation:**
+```css
+:root {
+    font-size: 16px; /* Define the root font size */
+}
+
+.text {
+    font-size: 1.5rem; /* 1.5 * 16px = 24px */
+}
+```
+## Example between em and rem 
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Page Title</title>
+	<style>
+		.parent {
+			background: white;
+			border: 1px solid black;
+		}
+
+		.one-rem {
+			font-size: 1rem;
+		}
+
+		.one-em {
+			font-size: 1em;
+		}
+
+		.two-rem {
+			font-size: 2rem;
+		}
+
+		.two-em {
+			font-size: 2em;
+		}
+
+		.parent {
+      line-height: 60px;
+			font-size: 32px;
+		}
+	</style>
+</head>
+
+<body>
+	<h3>Output-1</h3>
+	<div class="one-rem">1rem(16px)</div>
+	<div class="one-em">1em(16px)</div>
+	<div class="two-rem">2rem(32px)</div>
+	<div class="two-em">2em(32px)</div>
+	<hr>
+	<h3>Output-2</h3>
+	<div class="parent">
+    <div class="dy">default(32px)</div>
+		<div class="one-rem">1rem(16px)</div>
+		<div class="one-em">1em(32px)</div>
+		<div class="two-rem">2rem(32px)</div>
+		<div class="two-em">2em(64px)</div>
+	</div>
+</body>
+
+</html>
+
+
+```
+### `vw` Unit
+
+- Equal to 1% of the viewport width.
+- Useful for creating layouts that adapt to screen width.
+
+**Implementation:**
+```css
+.header {
+    width: 100vw; /* Takes 100% of viewport width */
+}
+```
+
+### `vh` Unit
+
+- Equal to 1% of the viewport height.
+- Useful for creating layouts that adapt to screen height.
+
+**Implementation:**
+```css
+.section {
+    height: 50vh; /* Takes 50% of viewport height */
+}
+```
+
+### `fr` Unit
+
+- Represents a fraction of the available space in a grid container.
+- Useful for creating flexible grid layouts.
+
+**Implementation:**
+```css
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Ratio of 1:2 */
+}
+```
+
+### `ch` Unit
+
+- Equal to the width of the `0` (zero) glyph in the font.
+- Useful for sizing elements based on characters.
+
+**Implementation:**
+```css
+.code {
+    width: 40ch; /* Width of 40 characters */
+}
+```
+
+## Example
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Page Title</title>
+	<style>
+		.box {
+			background: red;
+			border: 1px solid black;
+			margin: 10px;
+		}
+
+		.parent {
+			background: white;
+			border: 1px solid black;
+		}
+
+		.fifty-percent {
+			width: 50%;
+		}
+
+		.fifty-vw {
+			width: 50vw;
+		}
+
+		.twenty-five-vh {
+			height: 25vh;
+		}
+
+		.parent {
+			width: 300px;
+			
+		}
+    .px{
+      height: 20px;
+      width: 400px;
+    }
+    .ch{
+      width: 10ch;      
+    }
+	</style>
+</head>
+
+<body>
+	<h3>Output-1 </h3>
+	<div class="box fifty-percent">50%</div>
+	<div class="box fifty-vw">50vw</div>
+	<div class="box twenty-five-vh">25vh</div>
+  <div class="box px">20px</div>
+  <div class="box ch">12345678901</div>
+	<hr>
+	<h3>Output-2 </h3>
+	<div class="parent">
+		<div class="box fifty-percent">50%</div>
+		<div class="box fifty-vw">50vw</div>
+		<div class="box twenty-five-vh">25vh</div>
+    <div class="box px">20px</div>
+    <div class="box ch">12345678901</div>
+	</div>
+</body>
+</html>
+
+```
+
+## Media Queries
+
+Media queries are CSS techniques used to apply styles based on specific conditions, such as the device's screen width, height, or orientation. They're essential for creating responsive designs that adapt to different devices and screen sizes.
+
+### Syntax
+
+```css
+@media media-type and (media-feature) {
+    /* CSS rules to be applied when the condition is met */
+}
+```
+
+### Media Types
+
+- `all`: Applies to all media devices.
+- `screen`: Applies to screens, including desktops, tablets, and smartphones.
+- `print`: Applies when printing a document.
+- `speech`: Applies to screen readers and similar devices.
+
+### Media Features
+
+Media features define the characteristics of the target device, such as width, height, orientation, and more.
+
+## Implementation
+
+Here's an example of a media query that changes the background color for screens narrower than 600px:
+
+```css
+@media screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+```
+
+### Example: Adjusting Font Size for Mobile
+
+```css
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+}
+```
+
+### Example: Reordering Layout for Mobile
+
+```css
+@media screen and (max-width: 600px) {
+    .sidebar {
+        order: 2; /* Move the sidebar below the content */
+    }
+}
+```
+
+### Example: Hiding Elements on Mobile
+
+```css
+@media screen and (max-width: 600px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+```
+
+### Full Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: lightgray;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 30%;
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .main {
+            width: 70%;
+            background-color: lightgreen;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .hide-on-mobile {
+                display: none;
+            }
+        }
+    </style>
+    <title>Media Query Example</title>
+</head>
+<body>
+    <header>
+        <h1>Responsive Design Example</h1>
+    </header>
+    <div class="content">
+        <div class="sidebar">
+            <p>Sidebar content</p>
+        </div>
+        <div class="main">
+            <p>Main content</p>
+            <p class="hide-on-mobile">Hidden on mobile</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+## Media-query in Flex properties
+
+
+
+## Media-query in Grid properties
+
+
