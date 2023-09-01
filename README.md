@@ -1898,3 +1898,173 @@ Here's an example of a media query that changes the background color for screens
 ## Media-query in Grid properties
 
 
+## CSS Animations
+
+### `@keyframes` Rule
+
+- Used to define a set of animation steps at various points in the animation.
+- Specifies the animation's behavior at different keyframes.
+
+**Implementation:**
+```css
+@keyframes slide {
+    0% { left: 0; }
+    100% { left: 100px; }
+}
+```
+
+### `animation-name` Property
+
+- Specifies the name of the `@keyframes` animation.
+- Applies the defined animation to an element.
+
+**Implementation:**
+```css
+.element {
+    animation-name: slide;
+}
+```
+
+### `animation-duration` Property
+
+- Defines how long an animation takes to complete.
+- Accepts values in seconds (s) or milliseconds (ms).
+
+**Implementation:**
+```css
+.element {
+    animation-duration: 2s; /* 2 seconds */
+}
+```
+
+### `animation-delay` Property
+
+- Specifies a delay before the animation starts.
+- Accepts values in seconds (s) or milliseconds (ms).
+
+**Implementation:**
+```css
+.element {
+    animation-delay: 1s; /* 1 second delay before animation starts */
+}
+```
+
+### `animation-iteration-count` Property
+
+- Determines how many times the animation repeats.
+- Values can be a number or `infinite` for continuous repetition.
+
+**Implementation:**
+```css
+.element {
+    animation-iteration-count: 3; /* Animation repeats 3 times */
+}
+```
+
+### `animation-direction` Property
+
+- Sets the direction of the animation.
+- Values: `normal` (default), `reverse`, `alternate`, `alternate-reverse`.
+
+**Implementation:**
+```css
+.element {
+    animation-direction: alternate; /* Animation reverses on each cycle */
+}
+```
+
+### `animation-timing-function` Property
+
+- Specifies the timing function for the animation.
+- Defines the acceleration curve for the animation's speed.
+
+**Implementation:**
+```css
+.element {
+    animation-timing-function: ease-in-out; /* Smooth start and end */
+}
+```
+
+### `animation-fill-mode` Property
+
+- Determines how the element should be styled before and after the animation.
+- Values: `none` (default), `forwards`, `backwards`, `both`.
+
+**Implementation:**
+```css
+.element {
+    animation-fill-mode: forwards; /* Retains final animation state */
+}
+```
+
+### Full Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: relative;
+            animation-name: slide;
+            animation-duration: 2s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes slide {
+            0% { left: 0; }
+            100% { left: 100px; }
+        }
+    </style>
+    <title>CSS Animation Example</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+```
+
+In this example, we've defined a simple CSS animation using `@keyframes`. The animation moves a blue box from left to right. We've applied various animation properties such as `animation-name`, `animation-duration`, `animation-delay`, `animation-iteration-count`, `animation-direction`, `animation-timing-function`, and `animation-fill-mode` to control the animation's behavior.
+
+
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: relative;
+            animation-name: slide;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards; /* Retains final state */
+        }
+
+        @keyframes slide {
+            0% { left: 0; }
+            100% { left: 100px; }
+        }
+    </style>
+    <title>animation-fill-mode Example</title>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+```
